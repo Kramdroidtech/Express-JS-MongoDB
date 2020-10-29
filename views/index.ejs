@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./content-tags/headTag') %>
+ <body>
+  
+  <%- include('./content-tags/navigation') %>
+     
+  <div class="container mt-5">
+<% if(users.length > 0){ %>
+ <% users.forEach(user => { %>
+    <ul class="list-group mb-3">
+     <li class="list-group-item">
+       <a class="d-flex align-items-center justify-content-between" href="/all-user/<%= user._id %>">
+          <h2><%= user.name %><h2>
+          <h3><%= user.age %></h3>
+       </a>
+      </li>
+    </ul>
+ <% }) %>
+<% } %>
+    </div>
+    
+  <%- include('./content-tags/footer') %>
+   
+ </body>
+</html>

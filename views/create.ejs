@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./content-tags/headTag') %>
+ <body>
+  
+  <%- include('./content-tags/navigation') %>
+  
+  <div class="container mt-3">
+    <h2 class="text-center text-primary">ADD USER</h>
+     <form action="/add-user" method="post" class="form-group">
+       <input type="text" class="form-control mb-2" name="name" placeholder="Enter Name" required>
+       <input type="number" class="form-control mb-2" name="age" placeholder="Enter age" required>
+       <input type="submit" class="btn btn-success form-control" value="Add">
+     </form>
+  </div>
+  
+    <%- include('./content-tags/footer') %>
+
+ </body>
+</html>

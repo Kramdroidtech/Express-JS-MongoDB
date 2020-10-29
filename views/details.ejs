@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./content-tags/headTag') %>
+ <body>
+  
+  <%- include('./content-tags/navigation') %>
+  
+   <div class="container mt-3">
+    <div class="card">
+      <h5 class="card-header">USER INFO</h5>
+      <div class="card-body">
+        <h5 class="card-title"><%= user.name %></h5>
+        <p class="card-text"><%= user.age %></p>
+        <a href="/all-user/edit-user/<%= user._id %>" id="edit-btn" class="btn btn-success">Edit</a>
+        <a id="delete-btn" class="btn btn-danger" data-del="<%= user._id %>">Delete</a>
+      </div>
+    </div>
+   </div>
+   
+   <script>
+     const deleteBtn = document.querySelector('#delete-btn');
+     deleteBtn.addEventListener('click', async (e)=>{
+       const userEndPoint = `/all-user/${deleteBtn.dataset.del}`;
+       
+       try{
+         
+       const response = await fetch(userEndPoint,{
+         method: 'DELETE'
+       });
+       const data = await response.json();
+       window.location.href = data.redirectTo;
+       
+      }catch(e){
+        console.log(e)
+      }
+       
+     });
+   </script>
+  
+   <%- include('./content-tags/footer') %>
+
+ </body>
+</html>

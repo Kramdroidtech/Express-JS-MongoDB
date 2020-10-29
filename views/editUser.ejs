@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <%- include('./content-tags/headTag') %>
+ <body>
+  
+  <%- include('./content-tags/navigation') %>
+  
+  <div class="container mt-3">
+    <h2 class="text-center text-success">EDIT USER</h>
+     <form action="/all-user/edit-user" method="post" class="form-group">
+       <input type="hiddden" class="invisible d-none" name="id" value="<%= user._id %>">
+       <input type="text" class="form-control mb-2" name="name" placeholder="Enter Name" value="<%= user.name %>" required>
+       <input type="number" class="form-control mb-2" name="age" placeholder="Enter age" value="<%= user.age %>" required>
+       <input type="submit" class="btn btn-success form-control" value="EDIT">
+     </form>
+  </div>
+  
+    <%- include('./content-tags/footer') %>
+
+ </body>
+</html>
